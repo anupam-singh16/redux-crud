@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 // import { addToDo, deleteToDo, removeToDo } from "../Actions/index";
-import {  useSelector } from "react-redux";
+// import {  useSelector } from "react-redux";
 import "./to.css"
 
 import To from "./addItem";
-import List from "./List";
+// import List from "./List";
 import Pagination from "./pagination";
 
 
 
 function Todo() {
-  const [inputData, setInputData] = useState("");
-  console.log(inputData);
-  const list = useSelector((state) => state.Reducers.list);
+  // const [inputData, setInputData] = useState("");
+  // console.log(inputData);
+  // const list = useSelector((state) => state.Reducers.list);
 
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteToDo } from "../Actions/index";
-import Pagination from "./pagination";
+// import Pagination from "./pagination";
 
 function List({ itemData, listData }) {
   const [time, setTime] = useState(false);
