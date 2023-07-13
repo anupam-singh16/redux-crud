@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ListData from "./List";
+// import { timeout } from "q";
 // import { useDispatch } from "react-redux";
 // import { deleteToDo } from "../Actions/index";
 
@@ -11,9 +12,26 @@ function Pagination() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
+  // const [next,setNext] = useState(null)
   // const [time,setTime] = useState(false)
 
-  const data = list;
+// const nextPage =(number)=>{
+//   setNext(number)
+// }
+
+    const data = list;
+
+  // console.log("pagination data",data);
+
+ useEffect(()=>{
+  const timeOut = setTimeout(()=>{
+    console.log("debouncihf",data);
+  },1000)
+  return () =>  clearTimeout(timeOut)
+  
+
+ },[list])
+
 
   const lastItem = currentPage * itemsPerPage;
   const firstItem = lastItem - itemsPerPage;
@@ -37,12 +55,13 @@ function Pagination() {
       <ul>
         {/* <List itemData={item.data} /> */}
         {item.map((item, i) => {
-          return <ListData itemData={item} />
+          return <ListData key={i} itemData={item} />
         })}
       </ul>
 
       <div>
         {pageNumbers.map((number) => (
+          <>
           <button
             key={number}
             onClick={() => handlePageChange(number)}
@@ -50,10 +69,17 @@ function Pagination() {
               fontWeight: currentPage === number ? "bold" : "normal",
             }}
           >
+          {/* Prev */}
             {number}
           </button>
+           {/* {number} */}
+         </>
         ))}
+        
       </div>
+      {/* <button>previous</button>  */}
+      {/* {currentPage} */}
+         {/* <button>next</button>  */}
     </div>
   );
 }

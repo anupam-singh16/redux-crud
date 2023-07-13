@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteToDo } from "../Actions/index";
 // import Pagination from "./pagination";
+import  Loader from "./Loader"
 
 function List({ itemData, listData }) {
   const [time, setTime] = useState(false);
 
-  console.log(time);
+  // console.log(time);
   const dispatch = useDispatch();
   if (itemData) {
     setTimeout(() => {
@@ -20,7 +21,7 @@ function List({ itemData, listData }) {
     <>
       <li className="list-item">
        
-        {time ? itemData.data : <p>Loading...</p>}
+        {time ? itemData.data :<Loader/>}
         {time ? (
           <span
             className="icons"
