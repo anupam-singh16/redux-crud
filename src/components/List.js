@@ -5,7 +5,6 @@ import Pagination from "./pagination";
 
 function List({ itemData, listData }) {
   const [time, setTime] = useState(false);
-  // const [del , setDel] = useState(false)
 
   console.log(time);
   const dispatch = useDispatch();
