@@ -10,14 +10,10 @@ import Pagination from "./pagination";
 
 
 function Todo() {
-  //   const [allData,setAllData] = useState([]);
   const [inputData, setInputData] = useState("");
   console.log(inputData);
-  // const dispatch = useDispatch();
   const list = useSelector((state) => state.Reducers.list);
-//   const addData = () => {
-//     // setAllData([...allData,inputData])
-//   };
+
 
   return (
 
@@ -25,7 +21,6 @@ function Todo() {
       <div className="center-container" > 
           <To/>
           <Pagination/>
-          {/* <h1>To Do</h1> */}
           <hr/>
           {/* {list.map((item,i)=>{
           return(
