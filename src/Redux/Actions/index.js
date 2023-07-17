@@ -1,6 +1,9 @@
+import Types from './ActionTypes';
+
+
 export const addToDo = (data) => {
   return {
-    type: "ADD_TODO",
+    type: Types.ADD_TODO,
     payload: {
       id: new Date().getTime().toString(),
       data: data,
@@ -10,7 +13,7 @@ export const addToDo = (data) => {
 
 export const deleteToDo = (id) => {
   return {
-    type: "DELETE_TODO",
+    type: Types.DELETE_TODO,
     id,
   };
 };
@@ -30,8 +33,17 @@ export const previous = () =>{
 export const DELETE_TODO="DELETE_TODO"
 
 
-export const next = () =>{
+export const state = (data) =>{
   return {
-    type  : "NEXT"
+    type  : "SET_STATE",
+    payload:data,
   }
+}
+
+
+export const apiData = (api)=>{
+   return{
+    type:Types.GET_DATA,
+    payload:api,
+   }
 }

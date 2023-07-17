@@ -21,14 +21,7 @@ function Todo() {
       <div className="center-container" > 
           <To/>
           <Pagination/>
-          <hr/>
-          {/* {list.map((item,i)=>{
-          return(
-             <List key={i} list={item} />
-          )
-          })
-          } */}
-    
+          <hr/>   
       </div>
    </div>
 

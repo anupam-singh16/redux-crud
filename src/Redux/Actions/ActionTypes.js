@@ -1,0 +1,8 @@
+export default {
+    ADD_TODO:'ADD_TODO',
+    DELETE_TODO: 'DELETE_TODO',
+    EDIT_TODO :'EDIT_TODO',
+    GET_DATA:'GET_DATA',
+    REMOVE_DATA:'REMOVE_DATA',
+};
+
