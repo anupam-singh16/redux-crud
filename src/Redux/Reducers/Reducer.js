@@ -52,7 +52,6 @@ const Reducers = (state = initailData, action) => {
     //       },
     //     ],
     //   };
-
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToDo, removeToDo } from "../Actions/index";
+import { addToDo, removeToDo,apiData } from "../Redux/Actions/index";
 
 function To() {
   const dispatch = useDispatch();
@@ -13,8 +13,9 @@ function To() {
        return data.json();
      }).then((Adata)=>{
        setApi(Adata)
-     })
-   },[])
+      })
+    },[])
+    dispatch(apiData(api))
 
 
   return (

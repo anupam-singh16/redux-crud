@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ListData from "./List";
+import { Loader } from "rsuite";
+import Loader1 from "./Loader"
 // import { timeout } from "q";
 // import { useDispatch } from "react-redux";
 // import { deleteToDo } from "../Actions/index";
@@ -8,10 +10,14 @@ import ListData from "./List";
 function Pagination() {
   // const dispatch = useDispatch();
 
+  // const list = useSelector((state) => state.ApiReducer);
   const list = useSelector((state) => state.Reducers.list);
+
+  console.log("array ",list);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
+  const [time,setTime] = useState(false)
   // const [next,setNext] = useState(null)
   // const [time,setTime] = useState(false)
 
@@ -20,8 +26,9 @@ function Pagination() {
 // }
 
     const data = list;
+    // data.concat(list1)
 
-  // console.log("pagination data",data);
+  console.log("pagination data",data);
 
  useEffect(()=>{
   const timeOut = setTimeout(()=>{
@@ -29,10 +36,14 @@ function Pagination() {
   },1000)
   return () =>  clearTimeout(timeOut)
   
-
  },[list])
 
-
+useEffect(()=>{
+  
+  setTimeout(()=>{
+    setTime(true)
+ },3000)
+},[])
   const lastItem = currentPage * itemsPerPage;
   const firstItem = lastItem - itemsPerPage;
   const item = data.slice(firstItem, lastItem);
@@ -49,15 +60,18 @@ function Pagination() {
     pageNumbers.push(i);
   }
 
+  
+
   return (
-    <div>
+    <div className="pagination-con">
       {/* <h1>Pagination</h1>  */}
-      <ul>
+      {time?<ul>
         {/* <List itemData={item.data} /> */}
         {item.map((item, i) => {
-          return <ListData key={i} itemData={item} />
+       
+          return <ListData key={i} itemData={item}  time={setTime} />
         })}
-      </ul>
+      </ul>:<Loader1/>}
 
       <div>
         {pageNumbers.map((number) => (
